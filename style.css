@@ -1,0 +1,14 @@
+.container {
+  height: 78vh;
+  width: 45vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  flex: 1 1 auto;
+}
+
+.container div {
+  height: 4.4vh;
+  width: 2.5vw;
+  border: solid;
+}
