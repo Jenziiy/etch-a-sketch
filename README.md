@@ -1,2 +1,3 @@
 # etch-a-sketch
-Sort of a sketchpad or so they say..
+description: Sort of a sketchpad or so they say..
+skills: DOM Manipulation, problemsolving, planning etc.
