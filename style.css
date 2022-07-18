@@ -1,13 +1,11 @@
 .container {
-  height: 78vh;
-  width: 45vw;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  flex: 1 1 auto;
+  display: grid; 
+  grid-template-columns: repeat(16, 1fr);
+  width: 100px;
 }
 
 .container div {
+  display:flex;
   height: 4.4vh;
   width: 2.5vw;
   border: solid;
