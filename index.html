@@ -4,11 +4,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=CHROME">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Etch a sketch</title>
-  <script defer src="javascript.js"></script>
+  <title>Etch a sketch</title> 
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="javascript.js" defer></script>
 </head>
 <body>
-  
+  <button id="button">Click to edit drawing pane </button>
+  <div id="modal" class="modal">
+    <span class="close">&times;</span>
+      <form class="modal-content">
+        <div class="form-container">
+          <label>Choose up to 100² tiles.</label>
+          <input type="text" name="tiles" id="input-tiles">
+        </div>
+        <button type="submit" id="submit">submit</button>
+      </form>
+  </div>
+  <div id="container">
+
+  </div>
+  <button id="button-clear">Clear canvas</button>
 </body>
 </html>
