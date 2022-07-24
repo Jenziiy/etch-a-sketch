@@ -7,12 +7,14 @@ body {
 #container {
   display: grid; 
   grid-template-columns: repeat(16, 1fr);
+  border: solid black;
 }
 
 .square {
-  height: 2.5vw;
-  width: 2.5vw;
-  border:solid black;
+  height: 1.25vw;
+  width: 1.25vw;
+  border:solid gray;
+  border-width:0.2px;
 }
 
 .color {
@@ -67,7 +69,7 @@ box-shadow: 0vw 2.5vw 100vw 2vw greenyellow;
   padding-right: 37%;
 }
 
-input, label {
+input, label, #submit {
   display: flex;
   flex: 0 1 auto;
   border-radius: 6.5px; 
@@ -75,10 +77,10 @@ input, label {
  }
  input {
   width: 6.5vw;
-  margin-top 7.5%;
+  margin-top: 7.5%;
   padding-left: 3%;
  }
- label, button {
+ label, button, #submit {
   font-weight: 700;
  }
  
@@ -102,14 +104,33 @@ input, label {
   cursor: pointer;
 }
 
+#submit:hover,
+#submit:focus {
+  color: darkmagenta;
+  background-color: rgb(188, 194, 201);
+  text-decoration: none;
+  cursor: pointer;
+}
+#submit:active {
+  background-color: #cf5e97;
+  box-shadow: 2px 2px 2px 2px rgb(209, 184, 199);
+  transform: translateY(0.1px);
+}
+
 #submit {
   display: flex;
   flex: 0 1 30%;
   max-height: 50px;
   max-width: 65px;
   align-self: end;
-  margin-bottom: 1%;
+  padding: 0.5%;
+  margin-bottom: 0%;
   margin-right: 0.75%;
+  border: solid black;
+  background-color: rgb(255, 255, 255);
+  justify-content: center;
+  font-size: 12px;
+
 }
 
 @media only screen and (max-width: 600px) {

@@ -1,9 +1,9 @@
-import { button, buttonClear, modal, span, defaultSizeSquared, maxInput, initializePad, getContainer, input } from './utils.js';
-let userInput = 10;
-function createSketchPad(userInput_c){
+import { button, buttonClear, modal, closeButton, defaultSizeSquared, maxInput, initializePad, getContainer, input, submitButton, userInput, qs, qsa } from './utils.js';
+function createSketchPad(userInput = 16){
   initializePad();
-if (userInput_c > maxInput) userInput = defaultSizeSquared; // Setting a default value to prevent freezing, crashing & delays.
-  for ( let i = 0; i < userInput_c **2; i++){
+
+if (userInput > maxInput) userInput = defaultSizeSquared; // Setting a default value to prevent freezing, crashing & delays.
+  for ( let i = 0; i < userInput **2; i++){
     getContainer;
     const createSquare = document.createElement('div');
     getContainer.append(createSquare);
@@ -15,30 +15,26 @@ if (userInput_c > maxInput) userInput = defaultSizeSquared; // Setting a default
   getContainer.style.gridTemplateColumns = `repeat(${userInput},1fr)`;
 }
 
-function getInputValue() {
-  let userInput_c = document.getElementById('input-tiles').value;
-  alert(userInput_c);
-  //userInput = userInput.value;
-  input.addEventListener('submit', () => modal.style.display = 'none');
-  createSketchPad(userInput_c);
-  return userInput;
-
-}
-
 function draw() {
-  const squares = document.querySelectorAll('.square');
-  squares.forEach(square=>square.addEventListener("mouseover", changeColor));
+  const squares = qsa('.square');
+  squares.forEach(square=>square.addEventListener("mouseover", (e) => e.target.style.backgroundColor = 'gold'));
 }
 
-function changeColor(){
-  this.style.backgroundColor = 'gold';
+function undraw() {
+  const squares = qsa('.square');
+  squares.forEach(square=>square.addEventListener("mouseover", (e) => e.target.style.backgroundColor = 'pink'));
 }
-createSketchPad(userInput);
-input.addEventListener('submit', getInputValue);
+
+createSketchPad();
+input.addEventListener('input', (e) => createSketchPad(e.target.value));
+document.body.addEventListener('keypress', (e) => { if ( e.key === 'Enter') { modal.style.display = 'none' } } ) ;
+document.body.addEventListener('keypress', (e) => { if ( e.key === ' ') { modal.style.display = 'block' } } ) ;
+submitButton.addEventListener('click', () => modal.style.display = 'none');
 button.addEventListener('click', () => modal.style.display = 'block');
-span.addEventListener('click', () => modal.style.display = 'none');
-span.addEventListener('click', createSketchPad);
+closeButton.addEventListener('click', () => modal.style.display = 'none');
+closeButton.addEventListener('click', () => createSketchPad());
 getContainer.addEventListener('mousedown', draw);
-buttonClear.addEventListener('click', createSketchPad);
+getContainer.addEventListener('mouseup', undraw);
+buttonClear.addEventListener('click', () => { const qOfSquares = Math.sqrt(document.querySelectorAll('.square').length); createSketchPad(qOfSquares);});
 
 
