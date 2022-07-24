@@ -33,7 +33,10 @@ submitButton.addEventListener('click', () => modal.style.display = 'none');
 button.addEventListener('click', () => modal.style.display = 'block');
 closeButton.addEventListener('click', () => modal.style.display = 'none');
 closeButton.addEventListener('click', () => createSketchPad());
+getContainer.addEventListener('touchstart', draw);
+getContainer.addEventListener('touchmove', draw);
 getContainer.addEventListener('mousedown', draw);
+getContainer.addEventListener('touchend', undraw);
 getContainer.addEventListener('mouseup', undraw);
 buttonClear.addEventListener('click', () => { const qOfSquares = Math.sqrt(document.querySelectorAll('.square').length); createSketchPad(qOfSquares);});
 
